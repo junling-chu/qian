@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        ul {
+            margin: 50px auto;
+            display: flex;
+            flex-wrap: wrap;
+            width: 800px;
+            list-style: none;
+        }
+        
+        ul li {
+            width: 10%;
+            height: 30px;
+            margin-bottom: 5px;
+            text-align: center;
+            color: white;
+            background-color: pink;
+            border: 1px solid black;
+        }
+        
+        button {
+            position: absolute;
+            top: 240px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+    </ul>
+    <button class="start">开始</button>
+    <script>
+        var btn = document.querySelector('.start');
+        var ul = document.querySelector('ul');
+        var liNo = 0;
+        var flag = true;
+        var role;
+        btn.addEventListener('click', start);
+        var no;
+
+        function start() {
+            if (flag) {
+                btn.innerHTML = '停止';
+                role = window.setInterval(function() {
+                    for (var i = 0; i < ul.children.length; i++) {
+                        ul.children[i].style.backgroundColor = 'pink';
+                    }
+                    no = getRandom(1, 49);
+                    ul.children[no].style.backgroundColor = 'black';
+                    /*  ul.children[liNo].style.backgroundColor = 'black';
+                     if (liNo < 49) {
+                         liNo++;
+                     } else {
+                         liNo = 0;
+                     } */
+                }, 50);
+
+            } else {
+                clearInterval(role);
+                btn.innerHTML = '开始';
+                alert('恭喜,' + ul.children[no].innerHTML + '同学');
+            }
+            flag = !flag;
+        }
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+
+</html>
